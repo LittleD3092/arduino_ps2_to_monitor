@@ -25,7 +25,7 @@ byte type = 0;
 byte vibrate = 0;
 
 //dead area set
-#define deadArea 100
+#define deadArea 5
 
 
 
@@ -89,11 +89,13 @@ void loop()
   	//read ps2 gamepad
   	int ps2_left_analog_Y = ps2x.Analog(PSS_LY);
   	int ps2_right_analog_X = ps2x.Analog(PSS_RX);
+  	Serial.print("ps2 left y = ");				Serial.println(ps2_left_analog_Y);
+  	Serial.print("ps2 right x = ");				Serial.println(ps2_right_analog_X);
 
-  	bool front = (ps2_left_analog_Y  > 1024/2 + deadArea/2);
-  	bool back  = (ps2_left_analog_Y  < 1024/2 - deadArea/2);
-  	bool right = (ps2_right_analog_X > 1024/2 + deadArea/2);
-  	bool left  = (ps2_right_analog_X < 1024/2 - deadArea/2);
+  	bool front = (ps2_left_analog_Y  > 256/2 + deadArea/2);
+  	bool back  = (ps2_left_analog_Y  < 256/2 - deadArea/2);
+  	bool right = (ps2_right_analog_X > 256/2 + deadArea/2);
+  	bool left  = (ps2_right_analog_X < 256/2 - deadArea/2);
 
   	if( front && !back && !right && !left)			//foward
   	{
@@ -141,6 +143,7 @@ void loop()
   		Serial.print("left  motor speed = 0");
 	}
 
+	Serial.println("");
 
   	delay(1000);
 }

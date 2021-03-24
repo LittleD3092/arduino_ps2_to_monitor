@@ -139,11 +139,11 @@ void loop()
 	}
 	if(!front && !back && !right && !left)			//stop
   	{
-  		Serial.print("right motor speed = 0");
-  		Serial.print("left  motor speed = 0");
+  		Serial.println("right motor speed = 0");
+  		Serial.println("left  motor speed = 0");
 	}
 
 	Serial.println("");
 
-  	delay(1000);
+  	delay(500);
 }

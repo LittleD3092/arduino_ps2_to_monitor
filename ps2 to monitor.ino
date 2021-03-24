@@ -87,7 +87,7 @@ void loop()
   	ps2x.read_gamepad(false, vibrate);
 
   	//read ps2 gamepad
-  	int ps2_left_analog_Y = ps2x.Analog(PSS_LY);
+  	int ps2_left_analog_Y = 255 - ps2x.Analog(PSS_LY);
   	int ps2_right_analog_X = ps2x.Analog(PSS_RX);
   	Serial.print("ps2 left y = ");				Serial.println(ps2_left_analog_Y);
   	Serial.print("ps2 right x = ");				Serial.println(ps2_right_analog_X);
